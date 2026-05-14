@@ -27,6 +27,7 @@ function createWindow() {
     skipTaskbar: false,
     hasShadow: false,
     backgroundColor: '#00000000',
+    icon: path.join(__dirname, 'build/icon.png'),
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
       contextIsolation: true,
@@ -66,6 +67,7 @@ function createSettingsWindow() {
     skipTaskbar: true,
     hasShadow: true,
     parent: mainWindow,
+    icon: path.join(__dirname, 'build/icon.png'),
     webPreferences: {
       preload: path.join(__dirname, 'preload-settings.js'),
       contextIsolation: true,
@@ -83,9 +85,7 @@ function createSettingsWindow() {
 
 function createTray() {
   // Create a simple tray icon using nativeImage
-  const icon = nativeImage.createFromDataURL(
-    'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAABGBJREFUWEftl01oXFUUx3/nzryZJJNMko6NTdJqUhVbP1BR3Igi4kJEEBcuRBB0IYgbwY2CuBEXbnQhIiIuXIkgFEVQEQQR/EBRtEVrq9ZqbZJm0nxkMpN5c+/xnDczmWkmTYUKurjMzL33nP/5n/85c8XfPOTvrp//AXa3Avkf4H+A/4tCf6cLJK8fcj6eQXgfkXFU+kG6gWMoFxA5jep7FDqXS38q33nulwK8gcjDIA8BxzYBsRnE3xB5DfRl8qlT/HKle8bv7wN0IM2DfACyMl/Axjo3Qp0L8wXgJ8YA1hpLnv+Bf2VWzqnY/EwIPcgcuYGFNidqOxBOAl8Lp76PPMXD3vO3TcT3/wPNK5sUH/SnCSTJ6wE+kHOARchsqVfwdg15gDGaL7tPlIbD8J2H8FYhBkACXfVMhqkNEf/FDaV6/bDvjuAFQeQeUCcB2wt87BOLQGi4/kVJvU1OlReQp4HhFf4zY0Q/4+xn7z11YuJ35oOh4G6QPZY+VU8CuhbY2SrIWxiT3Y1yWfVBZx/N/P4PAFPAhEUrfS2AdxE5B/KhW+yuvp5cbh2kBWIk8DtwSZO5BuEKymhpjJ4yAjW2fhmAjgJHAY+YuXS/0y49aWD5YecIvIU8AJwsInEn6j8BPwCzKE6h+p3wFeJ3Ee5RuyOhNjBJCrXdxQ+aR7c6feSl1m5/EncQmR0y+i3g/QC3cAOlMNhIE/s2oWSy+m1xCQmQQZBRlG5BuWwyBcoR3CuT6YwDqsBYQjKHuBvs0mNV8h8inlUBrhA5Qn7z+SbXjEMOAnkPlN9xPUn0DkIY6uivFZ9ckk2kBxA/D1BJWLA0jHAXuBJ1qVWqyg+gJV36nP8qN5KjGAB+C7wCdRHTeLuZzgHPAb+SDhYjdWC6wCPgSlYf1LnnC++HecCrIwzuAfYYEGlGpR94CfQRVD7FuetKP/oO3TcT5jEMsBe4DerZn9N5BpXDqq6A+oy1YlPmvJjz6bkMSKPAMO7HGINkE8Qf4/iw+bT1c20X/AOYB9OyJMj9J3r2SPYCqngdPp8n7hc/tHuH4dqvwvOo9l8gnCVxjr/lE/fhNgN47K5VFgQ+AO4DdIG3rCMr34PLpFZCprSLMJ13ERlHvB/5hkfh/0CeAU+0lpx8qp8djF1pFZbdYKYl8CnwA/CyV5yofFT9qPTJdDPUjNt9xVfBz4HprIwE0c+AWIy8AXmJd16P7c9eMBXjpNRiuDpb8nTpQ+dPO2Y7CY2RKdE6d/h3kb0SfNx5hPrJ8ROwJ3gMd3aSJhQfQq/HuS9MU/eRG0bMQDCEa/4ue7j8pLFKH2AWiJQ9hJ4Kv3uU9UHqo9WLBkl3rI+0RWfh/kBebQVxpxHIHKqmQV9B/RuVz4BvGvmZnQbwdsNAqGLMbVCfcMf1Zfsr7L77N9m2rQb3Dv3fB3A5sv0NR5MAAAAASUVORK5CYII='
-  );
+  const icon = nativeImage.createFromPath(path.join(__dirname, 'build/icon.png')).resize({ width: 16, height: 16 });
 
   tray = new Tray(icon);
   const contextMenu = Menu.buildFromTemplate([
