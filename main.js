@@ -27,7 +27,7 @@ function createWindow() {
     skipTaskbar: false,
     hasShadow: false,
     backgroundColor: '#00000000',
-    icon: path.join(__dirname, 'build/icon.png'),
+    icon: path.join(__dirname, 'assets/icon.png'),
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
       contextIsolation: true,
@@ -67,7 +67,7 @@ function createSettingsWindow() {
     skipTaskbar: true,
     hasShadow: true,
     parent: mainWindow,
-    icon: path.join(__dirname, 'build/icon.png'),
+    icon: path.join(__dirname, 'assets/icon.png'),
     webPreferences: {
       preload: path.join(__dirname, 'preload-settings.js'),
       contextIsolation: true,
@@ -85,7 +85,7 @@ function createSettingsWindow() {
 
 function createTray() {
   // Create a simple tray icon using nativeImage
-  const icon = nativeImage.createFromPath(path.join(__dirname, 'build/icon.png')).resize({ width: 16, height: 16 });
+  const icon = nativeImage.createFromPath(path.join(__dirname, 'assets/icon.png')).resize({ width: 16, height: 16 });
 
   tray = new Tray(icon);
   const contextMenu = Menu.buildFromTemplate([
