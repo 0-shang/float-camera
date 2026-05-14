@@ -1,0 +1,62 @@
+{
+  "name": "float-camera",
+  "version": "1.0.0",
+  "description": "A floating camera app for Windows with portrait beautification and background replacement",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder --win"
+  },
+  "keywords": [
+    "camera",
+    "floating",
+    "beautify",
+    "background-replacement"
+  ],
+  "author": "",
+  "license": "MIT",
+  "type": "commonjs",
+  "devDependencies": {
+    "electron": "^36.3.2",
+    "electron-builder": "^26.8.1"
+  },
+  "build": {
+    "appId": "com.floatcamera.app",
+    "productName": "FloatCamera",
+    "files": [
+      "**/*"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "signAndEditExecutable": false
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "installerLanguages": [
+        "zh_CN",
+        "en_US"
+      ],
+      "language": 2052,
+      "shortcutName": "FloatCamera"
+    },
+    "directories": {
+      "output": "dist"
+    }
+  },
+  "dependencies": {
+    "@mediapipe/selfie_segmentation": "^0.1.1675465747",
+    "@tensorflow-models/body-segmentation": "^1.0.2",
+    "@tensorflow/tfjs-backend-cpu": "^4.22.0",
+    "@tensorflow/tfjs-backend-webgl": "^4.22.0",
+    "@tensorflow/tfjs-converter": "^4.22.0",
+    "@tensorflow/tfjs-core": "^4.22.0"
+  }
+}

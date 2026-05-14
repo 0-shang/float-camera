@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FloatCamera 设置</title>
+  <link rel="stylesheet" href="settings-styles.css">
+</head>
+<body>
+  <div id="settings-window">
+    <!-- Draggable title bar -->
+    <div id="settings-titlebar">
+      <div class="titlebar-left">
+        <span class="titlebar-icon">⚙️</span>
+        <span class="titlebar-text">FloatCamera 设置</span>
+      </div>
+      <button id="btn-close-settings" class="close-settings-btn" title="关闭">&times;</button>
+    </div>
+
+    <div id="settings-body">
+      <!-- Tab Navigation -->
+      <div class="tab-nav">
+        <button class="tab-btn active" data-tab="shape">形状</button>
+        <button class="tab-btn" data-tab="beauty">美颜</button>
+        <button class="tab-btn" data-tab="background">背景</button>
+        <button class="tab-btn" data-tab="camera">相机</button>
+      </div>
+
+      <!-- Shape Tab -->
+      <div class="tab-content active" id="tab-shape">
+        <div class="shape-options">
+          <button class="shape-btn active" data-shape="circle" title="圆形">
+            <div class="shape-preview circle-preview"></div>
+            <span>圆形</span>
+          </button>
+          <button class="shape-btn" data-shape="rectangle" title="矩形">
+            <div class="shape-preview rect-preview"></div>
+            <span>矩形</span>
+          </button>
+          <button class="shape-btn" data-shape="square" title="方形">
+            <div class="shape-preview square-preview"></div>
+            <span>方形</span>
+          </button>
+        </div>
+        <div class="slider-group">
+          <label>窗口大小</label>
+          <input type="range" id="size-slider" min="100" max="500" value="200" step="10">
+          <span id="size-value">200px</span>
+        </div>
+        <div class="slider-group">
+          <label>不透明度</label>
+          <input type="range" id="opacity-slider" min="30" max="100" value="100" step="5">
+          <span id="opacity-value">100%</span>
+        </div>
+        <div class="slider-group">
+          <label>边框宽度</label>
+          <input type="range" id="border-slider" min="0" max="8" value="3" step="1">
+          <span id="border-value">3px</span>
+        </div>
+        <div class="color-group">
+          <label>边框颜色</label>
+          <input type="color" id="border-color" value="#6c5ce7">
+        </div>
+      </div>
+
+      <!-- Beauty Tab -->
+      <div class="tab-content" id="tab-beauty">
+        <div class="beauty-presets">
+          <button class="preset-btn active" data-preset="none">原始</button>
+          <button class="preset-btn" data-preset="natural">自然</button>
+          <button class="preset-btn" data-preset="bright">明亮</button>
+          <button class="preset-btn" data-preset="soft">柔和</button>
+          <button class="preset-btn" data-preset="glamour">魅力</button>
+        </div>
+        <div class="slider-group">
+          <label>磨皮</label>
+          <input type="range" id="smooth-slider" min="0" max="100" value="0" step="5">
+          <span id="smooth-value">0</span>
+        </div>
+        <div class="slider-group">
+          <label>亮度</label>
+          <input type="range" id="brightness-slider" min="-50" max="50" value="0" step="5">
+          <span id="brightness-value">0</span>
+        </div>
+        <div class="slider-group">
+          <label>对比度</label>
+          <input type="range" id="contrast-slider" min="-50" max="50" value="0" step="5">
+          <span id="contrast-value">0</span>
+        </div>
+        <div class="slider-group">
+          <label>饱和度</label>
+          <input type="range" id="saturation-slider" min="-50" max="50" value="0" step="5">
+          <span id="saturation-value">0</span>
+        </div>
+        <div class="slider-group">
+          <label>美白</label>
+          <input type="range" id="whiten-slider" min="0" max="100" value="0" step="5">
+          <span id="whiten-value">0</span>
+        </div>
+        <div class="slider-group">
+          <label>锐化</label>
+          <input type="range" id="sharpen-slider" min="0" max="100" value="0" step="5">
+          <span id="sharpen-value">0</span>
+        </div>
+      </div>
+
+      <!-- Background Tab -->
+      <div class="tab-content" id="tab-background">
+        <p class="tab-hint">选择虚拟背景或模糊背景</p>
+        <div class="bg-options">
+          <button class="bg-btn active" data-bg="none" title="无背景">
+            <div class="bg-preview bg-none-preview">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M4.93 4.93l14.14 14.14"/></svg>
+            </div>
+            <span>无</span>
+          </button>
+          <button class="bg-btn" data-bg="blur" title="模糊背景">
+            <div class="bg-preview bg-blur-preview"></div>
+            <span>模糊</span>
+          </button>
+          <button class="bg-btn" data-bg="color-gradient1" title="渐变1">
+            <div class="bg-preview" style="background: linear-gradient(135deg, #667eea, #764ba2);"></div>
+            <span>紫蓝</span>
+          </button>
+          <button class="bg-btn" data-bg="color-gradient2" title="渐变2">
+            <div class="bg-preview" style="background: linear-gradient(135deg, #f093fb, #f5576c);"></div>
+            <span>粉红</span>
+          </button>
+          <button class="bg-btn" data-bg="color-gradient3" title="渐变3">
+            <div class="bg-preview" style="background: linear-gradient(135deg, #4facfe, #00f2fe);"></div>
+            <span>天蓝</span>
+          </button>
+          <button class="bg-btn" data-bg="color-gradient4" title="渐变4">
+            <div class="bg-preview" style="background: linear-gradient(135deg, #43e97b, #38f9d7);"></div>
+            <span>翠绿</span>
+          </button>
+          <button class="bg-btn" data-bg="color-gradient5" title="渐变5">
+            <div class="bg-preview" style="background: linear-gradient(135deg, #fa709a, #fee140);"></div>
+            <span>暖橙</span>
+          </button>
+          <button class="bg-btn" data-bg="color-solid" title="纯色">
+            <div class="bg-preview" style="background: #2d3436;"></div>
+            <span>纯色</span>
+          </button>
+        </div>
+        <div id="bg-color-picker" class="hidden">
+          <div class="color-group">
+            <label>背景颜色</label>
+            <input type="color" id="bg-color" value="#2d3436">
+          </div>
+        </div>
+        <div id="bg-blur-controls" class="hidden">
+          <div class="slider-group">
+            <label>模糊强度</label>
+            <input type="range" id="blur-intensity" min="2" max="30" value="10" step="1">
+            <span id="blur-value">10</span>
+          </div>
+        </div>
+        <div id="bg-image-upload">
+          <label class="upload-btn">
+            📁 上传自定义背景图片
+            <input type="file" id="bg-image-input" accept="image/*" style="display:none">
+          </label>
+        </div>
+        <div class="slider-group">
+          <label>边缘平滑度</label>
+          <input type="range" id="edge-blur" min="0" max="20" value="4" step="1">
+          <span id="edge-blur-value">4</span>
+        </div>
+      </div>
+
+      <!-- Camera Tab -->
+      <div class="tab-content" id="tab-camera">
+        <div class="slider-group">
+          <label>选择摄像头</label>
+          <select id="camera-select">
+            <option value="">加载中...</option>
+          </select>
+        </div>
+        <div class="camera-info">
+          <p class="info-text">💡 提示：切换摄像头后会自动应用到预览窗口</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="settings-renderer.js"></script>
+</body>
+</html>
